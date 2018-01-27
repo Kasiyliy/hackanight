@@ -12,7 +12,7 @@
       <div class="form-inline">
       <?php if(isset($_SESSION["admin"])):  ?>
             <?php $get = Admin::getAdmin($_SESSION["admin"]); ?>
-            <span class="text-success" style="padding-left:8px"><?php echo $get["email"]; ?></span>
+            <span class="text-success" style="padding-left:15px"><?php echo $get["email"]; ?></span>
             <a class="btn btn-success" href="<?php uri(); ?>logout"> &nbsp;Logout</a>
       <?php else: ?>
           <a class="btn btn-success" href="<?php uri(); ?>login">Login</a>
