@@ -5,7 +5,14 @@
   </button>
 
   <div class="collapse navbar-collapse" id="navb">
-    
+    <?php if(isset($_SESSION["admin"])):  ?>
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="<?php uri(); ?>admin">Admin</a>
+      </li>
+    </ul>
+    <?php endif; ?>
+
     
   </div>
   <div class="navbar-left">

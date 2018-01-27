@@ -46,4 +46,17 @@
             <li class="nav-item">
               <a class="nav-link  text-white" href="<?php uri(); ?>admin/groups">Группы</a>
             </li>
+             <li class="nav-item">
+              <a class="nav-link  text-white" href="<?php uri(); ?>admin/ranks">Ранки</a>
+            </li>
+             <li class="nav-item">
+              <a class="nav-link  text-white" href="<?php uri(); ?>admin/teachers">Учителя</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link  text-white" href="<?php uri(); ?>admin/stypes">Типы предметов</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link  text-white" href="<?php uri(); ?>admin/rooms">Кабинеты</a>
+            </li>
+            
 </ul>

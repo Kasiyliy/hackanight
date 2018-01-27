@@ -9,29 +9,29 @@ class Teacher{
 			$get[$i]["id"] = $row["id"];
 			$get[$i]["name"] = $row["name"];
 			$get[$i]["surname"] = $row["surname"];
-			$get[$i]["rank"] = $row["rank"];
+			$get[$i]["rank_id"] = $row["rank_id"];
 			$i++;
 		}
 		return $get;
     }
     
-    public static function addTeacher($name, $surname, $rank){
+    public static function addTeacher($name, $surname, $rank_id){
         $db = DB::getConnection();
-		$sql = "INSERT INTO Teachers (name, surname, rank) VALUES( :name, :surname, :rank)";
+		$sql = "INSERT INTO Teachers (name, surname, rank_id) VALUES( :name, :surname, :rank_id)";
 		$result=$db->prepare($sql);
 		$result->bindParam(":name",$name,PDO::PARAM_STR);
 		$result->bindParam(":surname",$surname,PDO::PARAM_STR);
-		$result->bindParam(":rank",$rank,PDO::PARAM_STR);
+		$result->bindParam(":rank_id",$rank_id,PDO::PARAM_INT);
 		return $result->execute();
     }
-    public static function updateTeacher($id,$name, $surname, $rank){
+    public static function updateTeacher($id,$name, $surname, $rank_id){
         $db = DB::getConnection();
-		$sql = "UPDATE Teachers SET title = :title, name = :name, surname = :surname, rank = :rank WHERE id = :id";
+		$sql = "UPDATE Teachers SET name = :name, surname = :surname, rank_id = :rank_id WHERE id = :id";
 		$result=$db->prepare($sql);
 		$result->bindParam(":id",$id,PDO::PARAM_INT);
 		$result->bindParam(":name",$name,PDO::PARAM_STR);
 		$result->bindParam(":surname",$surname,PDO::PARAM_STR);
-		$result->bindParam(":rank",$rank,PDO::PARAM_STR);
+		$result->bindParam(":rank_id",$rank_id,PDO::PARAM_INT);
 		return $result->execute();
     }
     public static function getTeacherByID($id){
