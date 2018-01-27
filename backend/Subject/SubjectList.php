@@ -45,7 +45,6 @@
 		        <?php foreach($subjects as $get): ?>
 	                  <tr>
 		                 
-		                  <a class="nav-link text-white" href="<?php uri(); ?>admin/subject/<?php echo $get["id"]; ?>">
 		                  	<td>
 		                  		<?php echo $get["title"]; ?>
 		                	 </td>
@@ -55,7 +54,6 @@
 		                 	<td>
 		                 		<a href="<?php uri(); ?>admin/subject/delete/<?php echo $get["id"]; ?>" class="btn btn-warning">Удалить</a>
 		                 	</td>
-		                 </a>
 	                 </tr>
 	            <?php endforeach; ?>
 	            </tbody>

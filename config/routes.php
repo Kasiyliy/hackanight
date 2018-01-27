@@ -45,6 +45,7 @@ return array(
 	'admin/add/teacher' => 'adminTeachers/add',
 	'admin/teachers' => 'adminTeachers/get',
 	
+	'createSchedule' => 'schedule/create',
 	
 	'main' => 'main/index',
 	'login' => 'user/login',
