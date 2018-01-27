@@ -30,6 +30,7 @@ class Router
 			if(preg_match("~$page~", $uri)){
 				$route = preg_replace("~$page~",$path, $uri);
 				$segments = explode('/',$route);
+				
 				$controllerName = ucfirst(array_shift($segments)).'Controller';
 				$actionName = 'action'.ucfirst(array_shift($segments));
 				$parameters = $segments;
