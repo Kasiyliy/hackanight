@@ -18,6 +18,7 @@ class Specialty{
 		$sql = "INSERT INTO specialty (title) VALUES(:title)";
 		$result=$db->prepare($sql);
 		$result->bindParam(":title",$title,PDO::PARAM_STR);
+		
 		return $result->execute();
     }
     public static function updateSpecialty($id,$title){

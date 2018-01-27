@@ -20,7 +20,7 @@ class Stream{
 		$sql = "INSERT INTO Streams (title, course_id) VALUES(:title, :course_id)";
 		$result=$db->prepare($sql);
 		$result->bindParam(":title",$title,PDO::PARAM_STR);
-		$result->bindParam(":course_id",$course_id,PDO::PARAM_STR);
+		$result->bindParam(":course_id",$course_id,PDO::PARAM_INT);
 		
 		return $result->execute();
     }
@@ -30,7 +30,7 @@ class Stream{
 		$result=$db->prepare($sql);
 		$result->bindParam(":id",$id,PDO::PARAM_INT);
 		$result->bindParam(":title",$title,PDO::PARAM_STR);
-		$result->bindParam(":course_id",$course_id,PDO::PARAM_STR);
+		$result->bindParam(":course_id",$course_id,PDO::PARAM_INT);
 	
 		return $result->execute();
     }

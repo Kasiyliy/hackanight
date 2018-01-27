@@ -31,17 +31,19 @@
 </style>
 
  <ul class="nav nav-pills flex-column bg-dark">
-            
             <li class="nav-item">
-              <a class="nav-link text-white" href="<?php uri(); ?>admin/courses">Курсы</span></a>
+              <a class="nav-link text-white" href="<?php uri(); ?>admin/specialties">Специальности</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link  text-white" href="#">Reports</a>
+              <a class="nav-link text-white" href="<?php uri(); ?>admin/subjects">Предметы</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link  text-white" href="#">Analytics</a>
+              <a class="nav-link  text-white" href="<?php uri(); ?>admin/courses">Курсы</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link  text-white" href="#">Export</a>
+              <a class="nav-link  text-white" href="<?php uri(); ?>admin/streams">Потоки</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link  text-white" href="<?php uri(); ?>admin/groups">Группы</a>
             </li>
 </ul>

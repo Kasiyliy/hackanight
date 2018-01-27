@@ -20,7 +20,7 @@ class SubjectType{
 		$sql = "INSERT INTO SubjectType (title, subject_id) VALUES(:title, :subject_id)";
 		$result=$db->prepare($sql);
 		$result->bindParam(":title",$title,PDO::PARAM_STR);
-		$result->bindParam(":subject_id",$subject_id,PDO::PARAM_STR);
+		$result->bindParam(":subject_id",$subject_id,PDO::PARAM_INT);
 		
 		return $result->execute();
     }
@@ -30,7 +30,7 @@ class SubjectType{
 		$result=$db->prepare($sql);
 		$result->bindParam(":id",$id,PDO::PARAM_INT);
 		$result->bindParam(":title",$title,PDO::PARAM_STR);
-		$result->bindParam(":subject_id",$subject_id,PDO::PARAM_STR);
+		$result->bindParam(":subject_id",$subject_id,PDO::PARAM_INT);
 	
 		return $result->execute();
     }

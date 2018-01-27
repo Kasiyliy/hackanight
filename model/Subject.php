@@ -20,18 +20,21 @@ class Subject{
 		$sql = "INSERT INTO Subject (title, credit, time) VALUES(:title, :credit, :time)";
 		$result=$db->prepare($sql);
 		$result->bindParam(":title",$title,PDO::PARAM_STR);
-		$result->bindParam(":credit",$credit,PDO::PARAM_STR);
-		$result->bindParam(":time", $time,PDO::PARAM_STR);
+		$result->bindParam(":credit",$credit,PDO::PARAM_INT);
+		$result->bindParam(":time", $time,PDO::PARAM_INT);
 		return $result->execute();
     }
     public static function updateSubject($id,$title, $credit, $time){
+    	$id = intval($id);
+    	$credit = intval($credit);
+    	$time = intval($time);
         $db = DB::getConnection();
 		$sql = "UPDATE Subject SET title = :title, credit = :credit, time = :time WHERE id = :id";
 		$result=$db->prepare($sql);
 		$result->bindParam(":id",$id,PDO::PARAM_INT);
 		$result->bindParam(":title",$title,PDO::PARAM_STR);
-		$result->bindParam(":credit",$credit,PDO::PARAM_STR);
-		$result->bindParam(":time", $time,PDO::PARAM_STR);
+		$result->bindParam(":credit",$credit,PDO::PARAM_INT);
+		$result->bindParam(":time", $time,PDO::PARAM_INT);
 		return $result->execute();
     }
     public static function getSubjectByID($id){

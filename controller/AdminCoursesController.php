@@ -7,7 +7,7 @@ class AdminCoursesController{
 		$courses = array();
 		$courses = Course::getCourses();
 		
-        include_once(DIRNAME.'backend/CoursesList.php');
+        include_once(DIRNAME.'backend/Course/CoursesList.php');
         return true;
     }
     
@@ -16,7 +16,24 @@ class AdminCoursesController{
 			header("Location:/");
 		}
 		
-		include_once(DIRNAME.'backend/CoursesView.php');
+		$course = Course::getCourseByID($id);
+	
+		$specialties = array();
+		$specialties = Specialty::getSpecialties();
+		
+		
+		$title = false;
+		$specialty_id = false;
+		
+		if(isset($_POST["course_update"])){
+		    $title = $_POST["title"];
+    		$specialty_id = $_POST["specialty_id"];
+    		
+    		Course::updateCourse($course["id"],$title, $specialty_id );
+    		header("Location:/admin/courses");
+		}
+		
+		include_once(DIRNAME.'backend/Course/CoursesView.php');
         return true;
     }
     
@@ -25,7 +42,22 @@ class AdminCoursesController{
 			header("Location:/");
 		}
 		
-		include_once(DIRNAME.'backend/CoursesAdd.php');
+		$specialty = array();
+		$specialty = Specialty::getSpecialties();
+		
+		$title = false;
+		$specialty_id = false;
+		
+		if(isset($_POST["course_add"])){
+		    $title = $_POST["title"];
+    		$specialty_id = $_POST["specialty_id"];
+    		
+    		Course::addCourse($title,$specialty_id );
+    		header("Location:/admin/courses");
+		}
+		
+		
+		include_once(DIRNAME.'backend/Course/CoursesAdd.php');
         return true;
     }
     
@@ -33,7 +65,8 @@ class AdminCoursesController{
         if(!isset($_SESSION["admin"])){
 			header("Location:/");
 		}
-		
+		Course::deleteCourse($id);
+		header("Location:/admin/courses");		
         return true;
     }
 }

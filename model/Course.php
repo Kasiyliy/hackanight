@@ -8,23 +8,29 @@ class Course{
 		while($row = $result->fetch()){
 			$get[$i]["id"] = $row["id"];
 			$get[$i]["title"] = $row["title"];
+			$get[$i]["specialty_id"] = $row["specialty_id"];
+			
 			$i++;
 		}
 		return $get;
     }
-    public static function addCourse($title){
+    public static function addCourse($title, $specialty_id){
         $db = DB::getConnection();
-		$sql = "INSERT INTO Courses (title) VALUES(:title)";
+		$sql = "INSERT INTO Courses (title, specialty_id) VALUES(:title, :specialty_id)";
 		$result=$db->prepare($sql);
 		$result->bindParam(":title",$title,PDO::PARAM_STR);
+		$result->bindParam(":specialty_id",$specialty_id,PDO::PARAM_INT);
+		
 		return $result->execute();
     }
-    public static function updateCourse($id,$title){
+    public static function updateCourse($id,$title, $specialty_id){
         $db = DB::getConnection();
-		$sql = "UPDATE Courses SET Courses = :title WHERE id = :id";
+		$sql = "UPDATE Courses SET title = :title, specialty_id = :specialty_id WHERE id = :id";
 		$result=$db->prepare($sql);
 		$result->bindParam(":id",$id,PDO::PARAM_INT);
 		$result->bindParam(":title",$title,PDO::PARAM_STR);
+		$result->bindParam(":specialty_id",$specialty_id,PDO::PARAM_INT);
+		
 		return $result->execute();
     }
     public static function getCourseByID($id){
