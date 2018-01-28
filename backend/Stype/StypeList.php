@@ -35,6 +35,9 @@
 		        			Name
 		        		</td>
 		        		<td>
+		        			Teacher Full name
+		        		</td>
+		        		<td>
 		        			Update
 		        		</td>
 		        			
@@ -54,6 +57,9 @@
 	                	 <td>
 	                	 	<?php $sb = Subject::getSubjectByID($get["subject_id"]); 
 	                	 	echo $sb["title"]; ?>
+	                	 </td>
+	                	 <td>
+	                	 	<?php $teach = Teacher::getTeacherByID($get["teacher_id"]); echo $teach["name"]." ".$teach["surname"]; ?>
 	                	 </td>
 	                 	<td>
 	                 		<a href="<?php uri(); ?>admin/stype/<?php echo $get["id"]; ?>" class="btn btn-info">Обновить</a>

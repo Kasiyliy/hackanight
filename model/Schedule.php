@@ -21,7 +21,7 @@ class Schedule{
 		}
 		return $get;
     }
-   
+	
     public static function addSchedule( $week, $start_time, $end_time, $group, $teacher_id, $subject, $room, $type ){
       	$db = DB::getConnection();
 		$sql = "INSERT INTO schedule ( week ,  start_time ,  end_time ,  group_id, teacher_id ,  subject ,  room ,  type ) VALUES (  :week, :start_time, :end_time, :group_id,:teacher_id, :subject, :room, :type)";
@@ -65,6 +65,25 @@ class Schedule{
 		$result->setFetchMode(PDO::FETCH_ASSOC);
 		$result->execute();
 		return $result->fetch();
+	}
+	public static function checkRoom($id,$stime,$week_id){
+		$db = DB::getConnection();
+		$sql = "SELECT * FROM schedule WHERE room = :room AND start_time = :start_time AND week = :week";
+		$result=$db->prepare($sql);
+		$result->bindParam(":room",$id,PDO::PARAM_INT);
+		$result->bindParam(":start_time",$stime,PDO::PARAM_STR);
+		$result->bindParam(":week",$week_id,PDO::PARAM_STR);
+		$result->execute();
+		
+		$data = $result->fetch();
+		
+		
+		if($data){
+			return true;
+		}
+		else{
+			return false;
+		}
 	}
 	public static function deleteSchedule($id){
 		$db = DB::getConnection();

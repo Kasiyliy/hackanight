@@ -53,5 +53,7 @@ class Subject{
 		$result->bindParam(":id",$id,PDO::PARAM_INT);
 		return $result->execute();
 	}
+	
+	
 }
 ?>

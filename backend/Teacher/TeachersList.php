@@ -49,7 +49,6 @@
 		        <tbody>
 		       <?php foreach($teachers as $get): ?>
 	                  <tr>
-		                   <a class="nav-link text-white" href="<?php uri(); ?>admin/teacher/<?php echo $get["id"]; ?>">
 		                  	<td>
 		                  		<?php echo $get["name"]; ?>
 		                	 </td>
@@ -62,7 +61,6 @@
 		                 	<td>
 		                 		<a href="<?php uri(); ?>admin/teacher/delete/<?php echo $get["id"]; ?>" class="btn btn-warning">Удалить</a>
 		                 	</td>
-		                 </a>
 	                 </tr>
 	            	<?php endforeach; ?>
 	            </tbody>

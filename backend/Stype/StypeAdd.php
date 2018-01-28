@@ -42,6 +42,14 @@
 		            </div>
 		            
 		            <div class="form-group">
+		            	<select  class="form-control" name="teacher_id" required>
+		            	    <?php foreach($teachers as $teacher): ?>
+		            	        <option value="<?php echo $teacher["id"]; ?>"><?php echo $teacher["name"]; ?></option>
+		            	    <?php endforeach; ?>
+		            	</select>
+		            </div>
+		            
+		            <div class="form-group">
 		            	<button type="submit" class="form-control" name="stype_add">Добавить</button>
 		        	</div>
 		        </form>

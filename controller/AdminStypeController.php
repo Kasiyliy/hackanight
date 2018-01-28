@@ -21,14 +21,19 @@ class AdminStypeController{
 		$subjects = array();
 		$subjects = Subject::getSubjects();
 		
+		$teachers = array();
+		$teachers = Teacher::getTeachers();
+		
 		$title = false;
 		$subject_id = false;
+		$teacher_id = false;
 		
 		if(isset($_POST["stype_update"])){
 		    $title = $_POST["title"];
 		    $subject_id = $_POST["subject_id"];
+		    $teacher_id = $_POST["teacher_id"];
 		    
-    		SubjectType::updateSubjectType($stype["id"],$title, $subject_id);
+    		SubjectType::updateSubjectType($stype["id"],$title, $subject_id,$teacher_id);
     		header("Location:/admin/stypes");
 		}
 		
@@ -44,14 +49,20 @@ class AdminStypeController{
 		$subjects = array();
 		$subjects = Subject::getSubjects();
 		
+		
+		$teachers = array();
+		$teachers = Teacher::getTeachers();
+		
 		$title = false;
 		$subject_id = false;
+		$teacher_id = false;
 		
 		if(isset($_POST["stype_add"])){
 		    $title = $_POST["title"];
 		    $subject_id = $_POST["subject_id"];
+		    $teacher_id = $_POST["teacher_id"];
     		
-    		SubjectType::addSubjectType($title , $subject_id);
+    		SubjectType::addSubjectType($title , $subject_id,$teacher_id);
     		header("Location:/admin/stypes");
 		}
 		
